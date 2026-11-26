@@ -1,0 +1,6 @@
+{
+  "name": "RequirementRipple",
+  "description": "Intelligent Software Requirement Engineering, Change Impact Analysis, Dependency Intelligence, and Predictive Software Maintenance Platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,1483 @@
+# MASTER PRODUCT DEVELOPMENT PROMPT
+# REQUIREMENTRIPPLE
+## Intelligent Software Change Impact, Prediction & Simulation Platform
+
+Act as a principal software architect, senior full-stack engineer, AI/ML engineer, product designer, software engineering researcher, cybersecurity engineer, and QA automation specialist.
+
+Your responsibility is to design and develop a complete, production-quality software platform named **RequirementRipple**.
+
+Do not approach this as a basic CRUD application, academic demo, ordinary project management tool, or simple AI chatbot.
+
+Build it as a technically sophisticated, intelligent software engineering platform that solves a genuine problem faced by software development teams.
+
+The final product must have a professional enterprise-grade interface, robust architecture, meaningful AI capabilities, reliable algorithms, complete backend functionality, and a polished user experience.
+
+---
+
+# PART 1 — PRODUCT VISION
+
+## 1.1 Product name
+
+RequirementRipple
+
+## 1.2 Product category
+
+Intelligent Software Requirement Engineering, Change Impact Analysis, Dependency Intelligence, and Predictive Software Maintenance Platform.
+
+## 1.3 Core problem
+
+Software requirements continuously evolve.
+
+A client may request a new feature, modify an existing requirement, remove functionality, or introduce a new business rule.
+
+Even a small change can affect multiple parts of an application:
+
+- Frontend components
+- Backend services
+- API endpoints
+- Database schemas
+- Authentication mechanisms
+- Business logic
+- Other requirements
+- Test cases
+- Documentation
+- External integrations
+
+Development teams frequently struggle to identify all these dependencies before implementing a change.
+
+This results in:
+
+- Unexpected bugs
+- Broken functionality
+- Missed dependencies
+- Increased development costs
+- Repeated testing
+- Requirement conflicts
+- Project delays
+- Technical debt
+- Production failures
+
+## 1.4 Proposed solution
+
+RequirementRipple must provide an intelligent environment where development teams can understand, analyze, simulate, predict, and manage the consequences of software requirement changes.
+
+Its central capability must be:
+
+**Understand a change → Discover its dependencies → Simulate its consequences → Predict risks → Recommend preventive actions.**
+
+The platform should help developers answer:
+
+1. What exactly has changed?
+2. Why has it changed?
+3. Which requirements are affected?
+4. Which source code files might be affected?
+5. Which APIs and database components are connected?
+6. What hidden dependencies exist?
+7. What could break?
+8. How much implementation effort might be required?
+9. Which test cases should be executed?
+10. Should the proposed change be approved?
+
+---
+
+# PART 2 — PRODUCT DESIGN PRINCIPLES
+
+Follow these principles throughout development.
+
+1. Build real functionality, not decorative buttons.
+2. Every dashboard metric must come from actual application data.
+3. AI-generated conclusions must include explanations and evidence.
+4. Never present guesses as verified facts.
+5. Distinguish direct dependencies from inferred dependencies.
+6. Show confidence levels for AI predictions.
+7. Maintain a complete change history.
+8. Protect the original project when running simulations.
+9. Ensure users can understand technical results without being senior developers.
+10. Design the platform for actual development teams, not just project demonstrations.
+
+The platform must be modular, maintainable, scalable, testable, and secure.
+
+---
+
+# PART 3 — TECHNOLOGY STACK
+
+Use the following preferred stack.
+
+## Frontend
+
+- React
+- Vite
+- JavaScript or TypeScript
+- Tailwind CSS
+- React Router
+- TanStack Query
+- Zustand for appropriate global state
+- React Hook Form
+- Zod for validation
+- React Flow (@xyflow/react) for dependency graphs
+- Recharts for analytics
+- Lucide React for icons
+- Framer Motion for restrained animations
+
+## Backend
+
+- Node.js
+- Express.js
+- TypeScript preferred for new modules
+- REST API
+- JWT authentication
+- bcrypt or Argon2 for password hashing
+- Zod for request validation
+
+## Database
+
+- MongoDB
+- Mongoose
+
+## AI and intelligence
+
+Design a provider-independent AI integration layer.
+
+Support:
+- OpenAI-compatible APIs
+- Google Gemini API
+- Local model integration where practical
+- Rule-based fallback when AI is unavailable
+
+Use AI for:
+- Natural-language requirement understanding
+- Semantic similarity
+- Requirement classification
+- Ambiguity detection
+- Conflict explanation
+- Impact explanations
+- Test case generation
+- Change recommendations
+
+Do not use an LLM as a replacement for deterministic algorithms.
+
+## Graph and analysis
+
+- Graph traversal algorithms
+- Breadth-First Search
+- Depth-First Search
+- Dependency graph analysis
+- Topological sorting where applicable
+- Centrality and dependency metrics where appropriate
+- Static code analysis
+- AST-based analysis for supported programming languages
+
+## Integrations
+
+- GitHub API
+- Git integration
+- Jira integration as an optional future module
+- External AI providers
+
+## Testing
+
+- Vitest
+- React Testing Library
+- Supertest
+- Playwright
+- Appropriate security and API testing tools
+
+Use stable, compatible package versions.
+
+---
+
+# PART 4 — PRODUCT MODULES
+
+Build the following modules as interconnected parts of one platform.
+
+## MODULE 1: Authentication and Organization Management
+
+Implement:
+
+- User registration
+- Login and logout
+- Secure password hashing
+- JWT authentication
+- Refresh token strategy
+- Forgot password
+- Password reset
+- Email verification
+- User profile
+- Profile settings
+- Organization creation
+- Team invitations
+- Role-based access control
+
+Roles:
+
+- Organization Owner
+- Administrator
+- Project Manager
+- Developer
+- Tester
+- Viewer
+
+Implement proper permissions for every sensitive operation.
+
+## MODULE 2: Project Management
+
+Users must be able to:
+
+- Create projects
+- Edit projects
+- Archive projects
+- Delete projects with appropriate safeguards
+- Invite team members
+- Assign roles
+- Set project descriptions
+- Configure project technology stacks
+- Set project status
+- View project activity
+
+Each project must have its own isolated requirements, dependencies, code connections, reports, and history.
+
+## MODULE 3: Intelligent Requirement Management
+
+This is the foundation of RequirementRipple.
+
+Provide complete requirement lifecycle management.
+
+Requirement types:
+
+- Functional requirements
+- Non-functional requirements
+- Business requirements
+- Technical requirements
+- Security requirements
+- Performance requirements
+- User stories
+- System constraints
+
+Each requirement should support:
+
+- Unique requirement ID
+- Title
+- Detailed description
+- Requirement category
+- Priority
+- Status
+- Acceptance criteria
+- Author
+- Assignee
+- Creation date
+- Modification date
+- Version number
+- Related requirements
+- Dependencies
+- Attachments
+- Approval status
+- Comments
+- Tags
+
+Implement:
+
+- Requirement creation
+- Editing
+- Deletion with safeguards
+- Search
+- Filtering
+- Sorting
+- Bulk operations
+- Requirement versioning
+- Requirement comparison
+- Requirement approval workflow
+
+Maintain historical versions instead of overwriting important previous information.
+
+## MODULE 4: AI Requirement Intelligence Engine
+
+Create a dedicated intelligence engine.
+
+When a user enters a requirement, analyze it for:
+
+### A. Requirement classification
+
+Automatically identify its category.
+
+### B. Ambiguity detection
+
+Identify unclear statements.
+
+Example:
+
+"The application should load quickly."
+
+Explain why this is ambiguous and suggest measurable acceptance criteria.
+
+### C. Completeness analysis
+
+Identify missing information.
+
+### D. Duplicate detection
+
+Find semantically similar existing requirements.
+
+### E. Requirement conflict detection
+
+Identify contradictions between requirements.
+
+Example:
+
+Requirement A: Users can access their accounts from multiple devices.
+
+Requirement B: Only one active session is permitted.
+
+Explain the conflict and its possible consequences.
+
+### F. Quality scoring
+
+Create an explainable requirement quality score based on completeness, clarity, testability, consistency, and other documented criteria.
+
+Do not invent a score without a transparent calculation.
+
+### G. Requirement improvement
+
+Suggest clearer versions of poorly written requirements.
+
+Always preserve the original requirement until the user explicitly approves a modification.
+
+## MODULE 5: Dependency Intelligence Engine
+
+This is one of the most important modules.
+
+Create a unified dependency graph.
+
+The graph must support nodes representing:
+
+- Requirements
+- Modules
+- Source code files
+- Functions
+- API endpoints
+- Database collections
+- Database fields
+- Test cases
+- External services
+- Technical decisions
+
+Relationship types should include:
+
+- Depends on
+- Implements
+- Calls
+- Reads from
+- Writes to
+- Tests
+- Conflicts with
+- Replaces
+- Related to
+
+Implement:
+
+### A. Direct dependency discovery
+
+Identify explicitly documented relationships.
+
+### B. Indirect dependency discovery
+
+Traverse the graph to identify downstream dependencies.
+
+### C. Hidden dependency discovery
+
+Identify relationships that are not explicitly documented but can be inferred from code references, API usage, imports, shared database access, and other available evidence.
+
+### D. Dependency visualization
+
+Build an interactive graph using React Flow.
+
+Support:
+- Zoom
+- Pan
+- Search
+- Node selection
+- Relationship filtering
+- Dependency depth
+- Impact highlighting
+- Node details
+- Graph expansion
+- Graph export
+
+Every inferred relationship must be marked as inferred, with evidence and confidence.
+
+Never present an unverified dependency as a confirmed relationship.
+
+## MODULE 6: GitHub Repository Intelligence
+
+Allow users to connect a GitHub repository securely.
+
+Implement:
+
+- GitHub OAuth or an appropriate GitHub App integration
+- Repository selection
+- Repository metadata retrieval
+- Branch information
+- Commit history
+- Pull request information where authorized
+- Source code indexing
+- File structure analysis
+
+Create a repository analysis pipeline.
+
+It should identify:
+
+- Source code files
+- Classes
+- Functions
+- Imports
+- Function calls where supported
+- API routes
+- Database models
+- Frontend components
+- Service relationships
+
+Use language-specific parsers and AST analysis where possible.
+
+Begin with JavaScript, TypeScript, and Python support.
+
+Design the architecture so additional languages can be supported later.
+
+Connect repository artifacts to software requirements using explicit mappings, code references, and explainable AI-assisted suggestions.
+
+Never execute untrusted repository code.
+
+Do not expose repository tokens in frontend responses or logs.
+
+## MODULE 7: Change Request Management
+
+Create a complete change request workflow.
+
+A user should be able to:
+
+1. Select an existing requirement.
+2. Propose a modification.
+3. Add the reason for the modification.
+4. Provide the proposed new requirement.
+5. Set priority.
+6. Submit the change for analysis.
+
+Support change categories:
+
+- Addition
+- Modification
+- Removal
+- Replacement
+- Enhancement
+
+Maintain both original and proposed versions.
+
+Track:
+- Requester
+- Reviewer
+- Submission date
+- Approval status
+- Analysis status
+- Comments
+- Decision history
+
+## MODULE 8: Change Impact Analysis Engine
+
+This must be the central technical engine of RequirementRipple.
+
+When a change request is submitted, automatically perform the following workflow:
+
+STEP 1: Understand the proposed change.
+
+STEP 2: Compare the original and proposed requirements.
+
+STEP 3: Identify semantic differences.
+
+STEP 4: Retrieve directly connected graph nodes.
+
+STEP 5: Traverse indirect dependencies.
+
+STEP 6: Identify potentially affected repository artifacts.
+
+STEP 7: Identify related test cases.
+
+STEP 8: Detect conflicts and missing dependencies.
+
+STEP 9: Calculate an explainable impact score.
+
+STEP 10: Generate an impact report.
+
+Classify impact into:
+
+- Direct impact
+- Indirect impact
+- Potential impact
+- Uncertain impact
+
+For each affected artifact, show:
+
+- Artifact name
+- Artifact type
+- Relationship to the changed requirement
+- Impact reason
+- Evidence
+- Confidence
+- Risk level
+- Recommended action
+
+Do not simply generate a list of affected modules using an LLM. Use actual dependency information and algorithms.
+
+## MODULE 9: Change Ripple Prediction
+
+Build a predictive analysis engine.
+
+Its purpose is to estimate how far a change could propagate through the software system.
+
+Analyze:
+
+- Dependency depth
+- Number of connected artifacts
+- Criticality of affected components
+- Dependency relationships
+- Historical failures
+- Previous similar changes
+- Test coverage
+- Change complexity
+
+Produce:
+
+- Directly affected count
+- Indirectly affected count
+- Total potential blast radius
+- Risk classification
+- Risk explanation
+- Confidence level
+- Recommended testing scope
+
+Use configurable, documented scoring rules.
+
+If sufficient historical data becomes available, introduce machine-learning-based predictions.
+
+Do not claim predictive accuracy without actual validation.
+
+## MODULE 10: What-If Scenario Simulator
+
+Create a separate simulation environment.
+
+Users should be able to explore hypothetical changes without modifying the approved project.
+
+Example:
+
+"What happens if the authentication module is removed?"
+
+The simulator should:
+
+- Create a temporary scenario
+- Apply the proposed relationship changes to a virtual graph
+- Identify affected nodes
+- Calculate possible consequences
+- Compare the scenario with the original project
+- Display risk differences
+- Generate a scenario report
+
+Support multiple scenarios.
+
+Allow users to compare scenarios side by side.
+
+Never change the real project graph during a hypothetical simulation.
+
+## MODULE 11: Change Impact Digital Twin
+
+Develop a virtual representation of the software project.
+
+The digital twin should represent:
+
+- Requirements
+- Code artifacts
+- APIs
+- Database structures
+- Dependencies
+- Tests
+- External integrations
+- Change history
+
+Its purpose is to allow developers to experiment with possible changes on a virtual representation of their actual project.
+
+Implement:
+
+- Project dependency model
+- Versioned graph snapshots
+- Scenario simulation
+- Change propagation visualization
+- Graph comparison
+- Impact analysis
+- Historical state restoration for analysis
+
+The digital twin must remain synchronized with available project data while preserving historical snapshots.
+
+Clearly identify outdated or incomplete repository information.
+
+## MODULE 12: Requirement Drift Detection
+
+Compare approved requirements against actual implementation evidence.
+
+Detect:
+
+- Missing implementation
+- Possible implementation deviations
+- Outdated documentation
+- Unmapped source code
+- Unimplemented acceptance criteria
+- Potentially obsolete requirements
+
+Use repository evidence and confidence levels.
+
+Do not claim that code behavior has been fully verified merely because a source file contains a matching keyword.
+
+## MODULE 13: AI Test Case Generator
+
+Automatically generate test cases from changed requirements and affected components.
+
+Support:
+
+- Positive testing
+- Negative testing
+- Boundary testing
+- Integration testing
+- Regression testing
+- Security-oriented test suggestions
+- Acceptance testing
+
+Every test case should include:
+
+- Test case ID
+- Related requirement
+- Test objective
+- Preconditions
+- Input data
+- Execution steps
+- Expected result
+- Priority
+- Test type
+- Related affected artifact
+
+Allow users to edit, approve, export, and track test cases.
+
+Generate test suggestions, not false claims that tests have already been executed.
+
+## MODULE 14: Historical Failure Intelligence
+
+Record previous changes and their outcomes.
+
+Store:
+
+- Original requirement
+- Proposed change
+- Approved change
+- Affected artifacts
+- Actual implementation
+- Tests performed
+- Bugs discovered
+- Production incidents where documented
+- Resolution
+- Lessons learned
+
+When a similar change is proposed, identify relevant historical cases.
+
+Explain which past incident is relevant and why.
+
+Build toward a learning system that improves from verified project history.
+
+## MODULE 15: Change Cost and Effort Estimation
+
+Estimate potential implementation effort.
+
+Analyze:
+
+- Number of affected artifacts
+- Change complexity
+- Required development work
+- Testing scope
+- Integration complexity
+- Historical implementation effort
+
+Produce:
+
+- Estimated development hours
+- Testing hours
+- Potential maintenance effort
+- Complexity classification
+- Estimation assumptions
+
+Allow users to adjust assumptions.
+
+Clearly label results as estimates rather than guaranteed costs.
+
+## MODULE 16: Decision Intelligence and Approval
+
+Build an evidence-based approval system.
+
+Before approval, show:
+
+- Requirement quality
+- Conflicts
+- Dependencies
+- Potential impact
+- Risk
+- Estimated effort
+- Test coverage
+- Unresolved questions
+- Historical warnings
+
+Provide recommendations:
+
+- Approve
+- Reject
+- Request clarification
+- Needs further analysis
+
+The platform must never silently approve or reject changes.
+
+Authorized human users make final decisions.
+
+Record the reason for every approval or rejection.
+
+## MODULE 17: Developer Knowledge Assistant
+
+Create a project-aware assistant.
+
+Users should be able to ask:
+
+- How does the authentication module work?
+- Which requirements depend on payment processing?
+- Why was this API modified?
+- What happened during the previous payment change?
+- Which modules should I understand before modifying this feature?
+- What are the unresolved risks in this project?
+
+Use retrieval-augmented generation over authorized project information.
+
+Provide evidence links to requirements, source artifacts, and historical records.
+
+Respect user permissions when retrieving information.
+
+Do not invent project information when evidence is unavailable.
+
+## MODULE 18: Analytics and Intelligence Dashboard
+
+Create a professional analytics dashboard.
+
+Include:
+
+- Total projects
+- Active requirements
+- Pending change requests
+- Approved changes
+- Rejected changes
+- Requirement conflicts
+- High-risk changes
+- Dependency graph statistics
+- Unresolved impact reports
+- Historical change trends
+- Test coverage metrics
+- Change failure statistics where available
+
+Use real database data.
+
+Provide date filters and project filters.
+
+Include charts, tables, activity feeds, and meaningful summaries.
+
+Never use hardcoded statistics.
+
+---
+
+# PART 5 — USER INTERFACE AND EXPERIENCE
+
+Create a modern enterprise SaaS interface.
+
+The design must be professional, polished, consistent, accessible, and intuitive.
+
+## Design direction
+
+Use a sophisticated software engineering aesthetic.
+
+Suggested visual direction:
+
+- Deep navy or charcoal sidebar
+- Clean light workspace
+- Restrained blue and violet accents
+- Subtle borders
+- Consistent spacing
+- Professional typography
+- Clear information hierarchy
+- Minimal shadows
+- Carefully designed status indicators
+- High-quality empty states
+- Meaningful loading states
+- Responsive layouts
+
+Avoid:
+- Excessive gradients
+- Unnecessary glassmorphism
+- Oversized decorative elements
+- Excessive animations
+- Generic AI-generated landing page designs
+- Random colors
+- Inconsistent cards
+- Fake dashboard metrics
+
+## Main navigation
+
+Create the following navigation structure:
+
+1. Overview
+2. Projects
+3. Requirements
+4. Change Requests
+5. Impact Analysis
+6. Dependency Explorer
+7. Digital Twin
+8. Scenario Simulator
+9. AI Intelligence
+10. Test Management
+11. Historical Intelligence
+12. Reports
+13. Integrations
+14. Team Management
+15. Settings
+
+Use project-level navigation where appropriate.
+
+## Required screens
+
+Design and implement:
+
+- Landing page
+- Sign-up page
+- Login page
+- Forgot password page
+- Organization onboarding
+- Project creation wizard
+- Main dashboard
+- Project overview
+- Requirement listing
+- Requirement details
+- Requirement editor
+- Requirement comparison
+- AI requirement analysis
+- Change request form
+- Change request details
+- Impact analysis report
+- Interactive dependency graph
+- Scenario simulator
+- Digital twin
+- Repository explorer
+- Test case management
+- Historical intelligence
+- Developer assistant
+- Analytics
+- Team management
+- Integration settings
+- User settings
+- Notifications
+- Error pages
+- Empty states
+
+All screens must be connected through working navigation.
+
+Design for desktop first while ensuring responsive behavior on tablets and mobile devices.
+
+---
+
+# PART 6 — DATABASE ARCHITECTURE
+
+Design a normalized logical data model using MongoDB collections and appropriate references.
+
+Include collections for:
+
+- Users
+- Organizations
+- OrganizationMembers
+- Projects
+- Requirements
+- RequirementVersions
+- ChangeRequests
+- DependencyNodes
+- DependencyEdges
+- RepositoryConnections
+- RepositoryArtifacts
+- RepositorySnapshots
+- ImpactAnalyses
+- ImpactedArtifacts
+- Scenarios
+- GraphSnapshots
+- TestCases
+- TestExecutions
+- HistoricalChanges
+- Incidents
+- ApprovalRecords
+- Comments
+- Notifications
+- AIAnalysisRecords
+- AuditLogs
+
+For each schema:
+
+- Define field types.
+- Define validation.
+- Add indexes.
+- Define relationships.
+- Include timestamps.
+- Handle deletion safely.
+- Enforce organization and project isolation.
+- Prevent unauthorized cross-project access.
+
+Use transactions where necessary and supported.
+
+Avoid unnecessary duplication.
+
+Store secrets and tokens securely.
+
+---
+
+# PART 7 — BACKEND ARCHITECTURE
+
+Use a modular backend structure.
+
+Organize by business domain.
+
+Suggested structure:
+
+server/
+  src/
+    config/
+    middleware/
+    modules/
+      auth/
+      organizations/
+      projects/
+      requirements/
+      changeRequests/
+      dependencies/
+      repository/
+      impactAnalysis/
+      simulation/
+      digitalTwin/
+      testing/
+      historicalIntelligence/
+      analytics/
+      ai/
+      notifications/
+      approvals/
+    services/
+    algorithms/
+    integrations/
+    validators/
+    utils/
+    routes/
+    app.ts
+    server.ts
+
+Separate:
+
+- Controllers
+- Services
+- Models
+- Routes
+- Validators
+- Business logic
+- Algorithms
+- External integrations
+
+Do not place all business logic inside controllers.
+
+Implement:
+
+- Centralized error handling
+- Request validation
+- Authentication middleware
+- Authorization middleware
+- Rate limiting
+- Structured logging
+- Pagination
+- Filtering
+- Sorting
+- Consistent API responses
+- Secure file handling
+- Background processing for expensive analysis
+
+Use asynchronous jobs for repository indexing and large impact analysis where necessary.
+
+---
+
+# PART 8 — FRONTEND ARCHITECTURE
+
+Use a modular structure.
+
+Suggested structure:
+
+client/
+  src/
+    components/
+    layouts/
+    pages/
+    modules/
+      auth/
+      projects/
+      requirements/
+      changeRequests/
+      impactAnalysis/
+      dependencyExplorer/
+      simulator/
+      digitalTwin/
+      testing/
+      analytics/
+      assistant/
+      integrations/
+    hooks/
+    services/
+    stores/
+    utils/
+    validators/
+    styles/
+    routes/
+
+Requirements:
+
+- Reusable components
+- Reusable forms
+- Consistent design tokens
+- Centralized API client
+- Protected routes
+- Error boundaries
+- Loading skeletons
+- Toast notifications
+- Proper empty states
+- Accessible forms
+- Responsive tables
+- Search and filtering
+- Confirmation dialogs for destructive operations
+
+Never use local hardcoded arrays as substitutes for backend data in production screens.
+
+Mock data may be used in clearly identified development fixtures and automated tests.
+
+---
+
+# PART 9 — SECURITY
+
+Implement security as a core product requirement.
+
+Include:
+
+- Secure authentication
+- Strong password hashing
+- Token expiration and revocation strategy
+- Role-based access control
+- Organization-level isolation
+- Project-level authorization
+- Input validation
+- Output sanitization
+- Protection against NoSQL injection
+- XSS protection
+- CSRF protection where applicable
+- Rate limiting
+- Secure CORS configuration
+- Secure HTTP headers
+- Environment variable management
+- Audit logging
+- Secure GitHub token handling
+- File upload restrictions
+- AI prompt injection protection
+- Repository content isolation
+- SSRF prevention for repository and URL integrations
+
+Treat repository contents, documents, and AI-retrieved content as untrusted data.
+
+Never execute arbitrary uploaded source code.
+
+Never commit API keys, access tokens, passwords, or secrets.
+
+---
+
+# PART 10 — TESTING AND QUALITY ASSURANCE
+
+Implement a complete testing strategy.
+
+## Unit testing
+
+Test:
+
+- Requirement validation
+- Conflict detection
+- Dependency traversal
+- Impact scoring
+- Risk calculations
+- Graph algorithms
+- Scenario simulation
+- Permission checks
+
+## Integration testing
+
+Test:
+
+- Authentication
+- Project creation
+- Requirement operations
+- Change request workflow
+- Impact analysis pipeline
+- Repository integration
+- AI provider fallback
+- Approval workflow
+
+## End-to-end testing
+
+Test complete user journeys:
+
+1. Register and log in.
+2. Create an organization.
+3. Create a project.
+4. Add requirements.
+5. Define dependencies.
+6. Connect a repository.
+7. Submit a requirement change.
+8. Run impact analysis.
+9. Review the impact report.
+10. Simulate a scenario.
+11. Generate test cases.
+12. Approve the change.
+13. Review historical records.
+
+Include negative tests, permission tests, and failure scenarios.
+
+Do not mark functionality complete without verifying it.
+
+---
+
+# PART 11 — PERFORMANCE AND SCALABILITY
+
+Design for increasing project complexity.
+
+Consider:
+
+- Database indexing
+- Efficient graph traversal
+- Graph query optimization
+- Pagination
+- Background jobs
+- Caching
+- AI response caching where safe
+- Repository indexing optimization
+- Incremental graph updates
+- Large dependency graph rendering
+- API response optimization
+- Database connection management
+
+Do not run full repository indexing unnecessarily after every small change.
+
+Implement incremental updates when practical.
+
+---
+
+# PART 12 — REPORTING AND EXPORT
+
+Provide export functionality for:
+
+- Requirement specifications
+- Requirement version history
+- Change impact reports
+- Dependency graph reports
+- Risk assessments
+- Test case reports
+- Scenario comparisons
+- Project analytics
+
+Support PDF, CSV, and JSON where appropriate.
+
+Reports must have professional formatting and include timestamps, project identification, analysis scope, assumptions, and evidence.
+
+---
+
+# PART 13 — DEPLOYMENT AND DEVOPS
+
+Prepare the project for real deployment.
+
+Include:
+
+- Environment-based configuration
+- Production build
+- Docker support
+- Docker Compose where appropriate
+- MongoDB deployment configuration
+- Frontend hosting
+- Backend hosting
+- Secure environment variables
+- Health check endpoints
+- Logging
+- Error monitoring
+- Database backup strategy
+- CI/CD workflow
+- Deployment documentation
+
+Provide separate development and production configurations.
+
+---
+
+# PART 14 — DOCUMENTATION
+
+Generate complete technical documentation.
+
+Required documents:
+
+1. Product overview
+2. Problem statement
+3. Proposed solution
+4. System architecture
+5. Architecture diagrams
+6. Database schema documentation
+7. API documentation
+8. Authentication and authorization documentation
+9. AI architecture
+10. Dependency analysis algorithm explanation
+11. Impact scoring methodology
+12. Scenario simulation methodology
+13. GitHub integration guide
+14. Installation instructions
+15. Environment variable guide
+16. Testing guide
+17. Deployment guide
+18. User manual
+19. Known limitations
+20. Future enhancements
+
+Include meaningful architecture diagrams and workflow diagrams.
+
+Document all algorithms and scoring formulas transparently.
+
+---
+
+# PART 15 — DEVELOPMENT EXECUTION PLAN
+
+Do not attempt to generate the entire application in one unstructured implementation.
+
+Develop it in controlled phases.
+
+## Phase 0: Existing project inspection
+
+If an existing RequirementRipple repository is supplied:
+
+- Inspect the complete folder structure.
+- Read package.json files.
+- Inspect existing frontend and backend code.
+- Inspect database models.
+- Inspect API routes.
+- Inspect authentication.
+- Identify completed modules.
+- Identify broken functionality.
+- Identify missing modules.
+- Preserve working functionality.
+
+Do not overwrite the existing implementation without understanding it.
+
+Create an implementation audit and migration plan first.
+
+If starting from an empty repository, initialize the architecture from scratch.
+
+## Phase 1: Foundation
+
+- Project architecture
+- Database configuration
+- Frontend setup
+- Backend setup
+- Authentication
+- Organization management
+- Project management
+- Design system
+
+## Phase 2: Requirement Engineering
+
+- Requirement CRUD
+- Requirement versioning
+- Requirement relationships
+- Requirement quality analysis
+- Requirement conflict detection
+
+## Phase 3: Dependency Intelligence
+
+- Dependency graph data model
+- Graph algorithms
+- Dependency visualization
+- Direct dependency discovery
+- Indirect dependency discovery
+- Hidden dependency inference
+
+## Phase 4: Change Intelligence
+
+- Change request workflow
+- Requirement comparison
+- Impact analysis
+- Risk scoring
+- Impact reports
+
+## Phase 5: AI Integration
+
+- AI provider abstraction
+- Requirement understanding
+- Semantic matching
+- Conflict explanations
+- Test case generation
+- AI assistant
+
+## Phase 6: Repository Intelligence
+
+- GitHub connection
+- Repository indexing
+- Source code parsing
+- Artifact extraction
+- Requirement-to-code mapping
+- Code dependency analysis
+
+## Phase 7: Advanced Intelligence
+
+- Change ripple prediction
+- What-if simulation
+- Digital twin
+- Requirement drift detection
+- Historical failure intelligence
+- Cost estimation
+
+## Phase 8: Enterprise Features
+
+- Approval workflows
+- Team collaboration
+- Audit logs
+- Analytics
+- Notifications
+- Reporting
+- Role management
+
+## Phase 9: Quality and Deployment
+
+- Security testing
+- Performance testing
+- Integration testing
+- End-to-end testing
+- Production build
+- Docker
+- Deployment
+- Documentation
+
+---
+
+# PART 16 — STRICT DEVELOPMENT RULES
+
+These rules are mandatory.
+
+1. Never generate an entire application as disconnected sample pages.
+2. Never create buttons that do nothing.
+3. Never use fake analytics in real dashboard screens.
+4. Never store important data only in browser state.
+5. Never bypass backend authorization.
+6. Never expose API keys.
+7. Never trust AI-generated dependency relationships without validation.
+8. Never modify real project data during hypothetical simulations.
+9. Never claim that an integration works without testing it.
+10. Never claim that an algorithm is predictive without measurable validation.
+11. Never sacrifice security for convenience.
+12. Never break existing working modules while adding new features.
+13. Never use placeholder implementations in features marked complete.
+14. Never hide errors from the user.
+15. Always provide meaningful error messages.
+16. Always validate API requests.
+17. Always handle loading, empty, success, and failure states.
+18. Always write tests for important algorithms and business logic.
+19. Keep the implementation modular and maintainable.
+20. Maintain a clear record of completed, pending, and partially implemented features.
+
+---
+
+# PART 17 — DEFINITION OF DONE
+
+A feature is complete only when:
+
+- Its frontend interface exists.
+- Its backend functionality exists.
+- Its database integration works.
+- Authentication and authorization are enforced.
+- Input validation works.
+- Error handling works.
+- Loading and empty states work.
+- Important business logic is tested.
+- Its user journey works end to end.
+- Documentation is updated.
+
+A visually complete screen is not a completed feature.
+
+A successful API response is not proof of a complete user workflow.
+
+---
+
+# PART 18 — FINAL PRODUCT EXPECTATION
+
+The final RequirementRipple platform should provide a complete intelligent software change lifecycle.
+
+A development team should be able to:
+
+1. Create a software project.
+2. Define and manage requirements.
+3. Connect requirements to technical artifacts.
+4. Connect a GitHub repository.
+5. Discover dependencies.
+6. Submit proposed requirement changes.
+7. Understand semantic differences.
+8. Detect requirement conflicts.
+9. Discover affected components.
+10. Predict potential impact and risks.
+11. Explore hypothetical scenarios.
+12. Generate test cases.
+13. Estimate implementation effort.
+14. Review historical failures.
+15. Approve or reject changes.
+16. Track actual implementation outcomes.
+17. Learn from previous project changes.
+
+The product should demonstrate genuine software engineering knowledge, meaningful algorithmic implementation, responsible AI usage, professional UI/UX, and strong full-stack development.
+
+It must be suitable for:
+
+- Professional portfolio presentation
+- Technical interviews
+- Software engineering demonstrations
+- Academic project evaluation
+- Potential real-world adoption
+- Future SaaS development
+
+## FINAL INSTRUCTION
+
+Before writing code, first understand the complete product requirements and inspect the existing repository if available.
+
+Produce:
+
+1. Product architecture
+2. Module breakdown
+3. Database architecture
+4. API architecture
+5. Frontend architecture
+6. AI and algorithm architecture
+7. Development roadmap
+8. Risk and dependency assessment
+
+Then begin implementation phase by phase.
+
+At the end of every phase:
+
+- List completed features.
+- List files created or modified.
+- Explain important technical decisions.
+- Run relevant tests.
+- Report failures honestly.
+- Identify remaining tasks.
+- Confirm that existing features still work.
+
+Do not move to the next phase while critical functionality in the current phase is broken.
+
+**The ultimate objective is to make RequirementRipple an intelligent, explainable, reliable, and genuinely innovative software engineering platform—not merely another project management application.**
